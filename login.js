@@ -7,7 +7,7 @@ describe("深圳agency",function(){
             .click()
             .type('Ceshiszautotest')   //输入用户名
             .should('have.value','Ceshiszautotest')  //判断用户名输入是否正确
-        cy.get('.ac_results')   //获得下拉框
+        cy.get('.ac_results')   //获取用名户下拉框
             .should('be.visible')   //判断下拉框是否显示
             .click()
         cy.get('#txtPassword')  //获取密码输入框
@@ -17,8 +17,33 @@ describe("深圳agency",function(){
             .click()   //提交登录               
     })
 
-    it("房源列表页",function(){
-        cy.get('#war-zone')
+    it("通盘房源",function(){
+        cy.get('#war-zone')  //获取通盘房源左导
             .should('be.visible') //判断通盘房源左导是否显示
+        cy.get('#districtType') //获取二级导航
+        cy.wait(1000) //等待1秒
+        cy.get('[code="10"]')
+            .should('contain','二手盘') //判断是否包含二手盘
+            .click()
+        cy.wait(1000)
+        cy.get('[code="60"]')
+            .should('contain','商住盘')  //判断是否包含商住盘
+            .click()
+        cy.wait(1000)
+        cy.get('[code="20"]')
+            .should('contain','一手盘')  //判断是否包含一手盘
+            .click()
+        cy.wait(1000)
+        cy.get('[code="30"]')
+            .should('contain','临深盘')  //判断是否包含临深盘
+            .click()
+        cy.wait(1000)
+        cy.get('[code="40"]')
+            .should('contain','上数盘')  //判断是否包含上述盘
+            .click()
+        cy.wait(1000)
+        cy.get('[code="50"]')
+            .should('contain','数据盘')  //判断是否包含数据盘
+            .click()
     })
 })
