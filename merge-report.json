@@ -1,0 +1,267 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-12-09T13:40:48.100Z",
+    "end": "2020-12-09T13:41:13.210Z",
+    "duration": 11480,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bcaeb4d4-d59a-45cd-8a00-ae3ee414df32",
+      "title": "",
+      "fullFile": "cypress\\integration\\szagency\\login.js",
+      "file": "cypress\\integration\\szagency\\login.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2a9864da-174f-4e65-86fd-c81dadb4bb7a",
+          "title": "深圳agency",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "登录",
+              "fullTitle": "深圳agency 登录",
+              "timedOut": null,
+              "duration": 5710,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://szagency.centaline.com.cn/'); //打开深圳A+网址\ncy.title().should('contain', '用户登录'); //判断是否打开（打开正确，标题包含‘用户登录’字样）\ncy.get('#txtUserName') //获取用户名输入框\n.click().type('Ceshiszautotest') //输入用户名\n.should('have.value', 'Ceshiszautotest'); //判断用户名输入是否正确\ncy.get('.ac_results') //获取用名户下拉框\n.should('be.visible') //判断下拉框是否显示\n.click();\ncy.get('#txtPassword') //获取密码输入框\n.type('f1zzb4ck'); //输入密码\ncy.get('.btn-org') //获取登录按钮\n.should('contain', '登录') //判断登录框是否显示\n.click(); //提交登录",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://szagency.centaline.com.cn/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: getaddrinfo ENOTFOUND szagency.centaline.com.cn\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://szagency.centaline.com.cn/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: getaddrinfo ENOTFOUND szagency.centaline.com.cn\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at http://localhost:50713/__cypress/runner/cypress_runner.js:157800:23\n    at visitFailedByErr (http://localhost:50713/__cypress/runner/cypress_runner.js:157160:12)\n    at http://localhost:50713/__cypress/runner/cypress_runner.js:157799:11\n    at tryCatcher (http://localhost:50713/__cypress/runner/cypress_runner.js:10584:23)\n    at Promise._settlePromiseFromHandler (http://localhost:50713/__cypress/runner/cypress_runner.js:8519:31)\n    at Promise._settlePromise (http://localhost:50713/__cypress/runner/cypress_runner.js:8576:18)\n    at Promise._settlePromise0 (http://localhost:50713/__cypress/runner/cypress_runner.js:8621:10)\n    at Promise._settlePromises (http://localhost:50713/__cypress/runner/cypress_runner.js:8697:18)\n    at _drainQueueStep (http://localhost:50713/__cypress/runner/cypress_runner.js:5291:12)\n    at _drainQueue (http://localhost:50713/__cypress/runner/cypress_runner.js:5284:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:50713/__cypress/runner/cypress_runner.js:5300:5)\n    at Async.drainQueues (http://localhost:50713/__cypress/runner/cypress_runner.js:5170:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:50713/__cypress/tests?p=cypress\\integration\\szagency\\login.js:102:8)\n\nFrom Node.js Internals:\n  Error: getaddrinfo ENOTFOUND szagency.centaline.com.cn\n      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)\n  ",
+                "diff": null
+              },
+              "uuid": "67370cb3-7139-40bb-a382-c21977d8091e",
+              "parentUUID": "2a9864da-174f-4e65-86fd-c81dadb4bb7a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "通盘房源",
+              "fullTitle": "深圳agency 通盘房源",
+              "timedOut": null,
+              "duration": 4532,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#war-zone') //获取通盘房源左导\n.should('be.visible'); //判断通盘房源左导是否显示\ncy.get('#districtType'); //获取二级导航\n//cy.wait(1000) //等待1秒\ncy.get('[code=\"10\"]').should('contain', '二手盘') //判断是否包含二手盘\n.click(); //cy.wait(1000)\ncy.get('[code=\"60\"]').should('contain', '商住盘') //判断是否包含商住盘\n.click(); //cy.wait(1000)\ncy.get('[code=\"20\"]').should('contain', '一手盘') //判断是否包含一手盘\n.click(); //cy.wait(1000)\ncy.get('[code=\"30\"]').should('contain', '临深盘') //判断是否包含临深盘\n.click(); //cy.wait(1000)\ncy.get('[code=\"40\"]').should('contain', '上数盘') //判断是否包含上述盘\n.click(); //cy.wait(1000)\ncy.get('[code=\"50\"]').should('contain', '数据盘') //判断是否包含数据盘\n.click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `#war-zone`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `#war-zone`, but never found it.\n    at Context.eval (http://localhost:50713/__cypress/tests?p=cypress\\integration\\szagency\\login.js:122:6)",
+                "diff": null
+              },
+              "uuid": "51115557-28a6-428e-a81d-b15791f25465",
+              "parentUUID": "2a9864da-174f-4e65-86fd-c81dadb4bb7a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "67370cb3-7139-40bb-a382-c21977d8091e",
+            "51115557-28a6-428e-a81d-b15791f25465"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10242,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "cc808d4d-48e8-45e4-bd66-c30e55fdfd46",
+      "title": "",
+      "fullFile": "cypress\\integration\\testConfig.js",
+      "file": "cypress\\integration\\testConfig.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4b4cff60-e05f-492c-b16d-481a1442ec9a",
+          "title": "测试Cypress.config",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "测试取值和设置值",
+              "fullTitle": "测试Cypress.config 测试取值和设置值",
+              "timedOut": null,
+              "duration": 163,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(Cypress.env());\ncy.log('pageLoadTimeout默认值是：' + Cypress.config('pageLoadTimeout'));\nCypress.config('pageLoadTimeout', 10000);\ncy.log('pageLoadTimeout当前值是：' + Cypress.config('pageLoadTimeout'));",
+              "err": {},
+              "uuid": "6e5b661b-f3c7-4748-bb2b-0583b679705e",
+              "parentUUID": "4b4cff60-e05f-492c-b16d-481a1442ec9a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6e5b661b-f3c7-4748-bb2b-0583b679705e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 163,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "63f9b359-f005-4dd5-ab40-b15712f0d4fb",
+      "title": "",
+      "fullFile": "cypress\\integration\\loggin-in__html-web-forms\\testLogin.js",
+      "file": "cypress\\integration\\loggin-in__html-web-forms\\testLogin.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e1c37f34-50ca-4b0f-a99a-40af9b211fff",
+          "title": "登录",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "dfa994db-be1c-47b7-bcc4-406ab6ec888a",
+              "title": "HTML表单登录测试",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "登录成功，跳转到dashboard页",
+                  "fullTitle": "登录 HTML表单登录测试 登录成功，跳转到dashboard页",
+                  "timedOut": null,
+                  "duration": 1075,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('http://localhost:7077/login');\ncy.get('input[name=username]').type(username);\ncy.get('input[name=password]').type(password); //cy.pause()\ncy.get('form').debug().submit();\ncy.url().should('include', '/dashboard');\ncy.get('h1').should('contain', 'jane.lane');",
+                  "err": {},
+                  "uuid": "b5b8c537-fd51-4377-80ce-6d3d33ea717e",
+                  "parentUUID": "dfa994db-be1c-47b7-bcc4-406ab6ec888a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b5b8c537-fd51-4377-80ce-6d3d33ea717e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1075,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
